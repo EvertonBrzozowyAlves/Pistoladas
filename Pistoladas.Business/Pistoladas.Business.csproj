@@ -1,0 +1,16 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netstandard2.0</TargetFramework>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\Pistoladas.Data\Pistoladas.Data.csproj" />
+    <ProjectReference Include="..\Pistoladas.Models\Pistoladas.Models.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="Annotations\Implementations\" />
+  </ItemGroup>
+
+</Project>

@@ -22,5 +22,13 @@ namespace Pistoladas.API.Controllers
             var rng = new Random();
             return rng.Next(-10, 10).ToString();
         }
+
+        [HttpGet]
+        [Route("[action]")]
+        public string Log()
+        {
+            _logger.LogInformation("Simple test");
+            return "ok";
+        }
     }
 }

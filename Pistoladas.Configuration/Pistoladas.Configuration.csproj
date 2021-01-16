@@ -10,6 +10,8 @@
   </ItemGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\Pistoladas.Business\Pistoladas.Business.csproj" />
+    <ProjectReference Include="..\Pistoladas.Data\Pistoladas.Data.csproj" />
     <ProjectReference Include="..\Pistoladas.Models\Pistoladas.Models.csproj" />
   </ItemGroup>
 

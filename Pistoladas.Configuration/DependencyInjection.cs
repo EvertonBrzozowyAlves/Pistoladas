@@ -1,4 +1,8 @@
 ﻿using Microsoft.Extensions.DependencyInjection;
+using Pistoladas.Business.User;
+using Pistoladas.Business.User.Implementations;
+using Pistoladas.Data.User;
+using Pistoladas.Data.User.Implementations;
 
 namespace Pistoladas.Configuration
 {
@@ -6,7 +10,8 @@ namespace Pistoladas.Configuration
 	{
 		public static void RegisterDependencies(this IServiceCollection services)
 		{
-			//services.AddSingleton<INoteDao, NoteDaoDapper>();
+			services.AddSingleton<IUserBusiness, UserBusiness>();
+			services.AddSingleton<IUserData, UserDataMock>();
 		}
 	}
 }

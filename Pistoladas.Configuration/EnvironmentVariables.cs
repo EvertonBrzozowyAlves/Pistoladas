@@ -8,6 +8,9 @@ namespace Pistoladas.Configuration
 {
 	public static class EnvironmentVariables
 	{
+		/// <summary>
+		/// Load environment variables, after finding a .env file within the project root path.
+		/// </summary>
 		public static void Load()
 		{
 			try
@@ -29,7 +32,7 @@ namespace Pistoladas.Configuration
 				throw;
 			}
 		}
-		public static DirectoryInfo TryGetEnvDirectoryInfo(string currentPath = null)
+		private static DirectoryInfo TryGetEnvDirectoryInfo(string currentPath = null)
 		{
 			var directory = new DirectoryInfo(currentPath ?? Directory.GetCurrentDirectory());
 			while (directory != null && !directory.GetFiles("*.env").Any())
