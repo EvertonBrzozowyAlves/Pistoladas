@@ -1,0 +1,10 @@
+{
+  "profiles": {
+    "Pistoladas.CLI": {
+      "commandName": "Project"
+    },
+    "Docker": {
+      "commandName": "Docker"
+    }
+  }
+}
