@@ -23,7 +23,9 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "1 - Presentation", "1 - Pre
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Pistoladas.Business", "Pistoladas.Business\Pistoladas.Business.csproj", "{11412B5C-E5D7-4579-803E-E82326BE951B}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Pistoladas.Data", "Pistoladas.Data\Pistoladas.Data.csproj", "{49860760-DFEB-49B5-8D51-3A8AD9E51ECE}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Pistoladas.Data", "Pistoladas.Data\Pistoladas.Data.csproj", "{49860760-DFEB-49B5-8D51-3A8AD9E51ECE}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Pistoladas.CLI", "Pistoladas.CLI\Pistoladas.CLI.csproj", "{CCCEB0E8-3926-41AF-AE4D-847872CC0398}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -51,6 +53,10 @@ Global
 		{49860760-DFEB-49B5-8D51-3A8AD9E51ECE}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{49860760-DFEB-49B5-8D51-3A8AD9E51ECE}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{49860760-DFEB-49B5-8D51-3A8AD9E51ECE}.Release|Any CPU.Build.0 = Release|Any CPU
+		{CCCEB0E8-3926-41AF-AE4D-847872CC0398}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{CCCEB0E8-3926-41AF-AE4D-847872CC0398}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{CCCEB0E8-3926-41AF-AE4D-847872CC0398}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{CCCEB0E8-3926-41AF-AE4D-847872CC0398}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -61,6 +67,7 @@ Global
 		{E09A363E-08C2-4571-AA98-14314FF952C0} = {D58FA268-73BE-46B4-9446-EB11C5E8FDE0}
 		{11412B5C-E5D7-4579-803E-E82326BE951B} = {E8730F5A-7642-4A16-8F25-808B08E5E352}
 		{49860760-DFEB-49B5-8D51-3A8AD9E51ECE} = {9A19662D-1511-4F14-BCCA-7389DF6B6C45}
+		{CCCEB0E8-3926-41AF-AE4D-847872CC0398} = {8C2C8970-E8B9-461F-8B90-04CD8B00EFB7}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {BCA37C2E-87E9-48FC-861A-8AA45656D6A7}

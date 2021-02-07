@@ -15,6 +15,7 @@ namespace Pistoladas.Models.Entities.User
             MobilePhone = mobilePhone;
         }
 
+        public long UserId { get; set; }
         public string Name { get; set; }
         public string Email { get; set; }
         public string MobilePhone { get; set; }

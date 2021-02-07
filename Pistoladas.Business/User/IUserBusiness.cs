@@ -1,5 +1,4 @@
-﻿using Pistoladas.Models.Entities;
-using Pistoladas.Models.Entities.User;
+﻿using Pistoladas.Models.Entities.User;
 using System.Collections.Generic;
 
 namespace Pistoladas.Business.User

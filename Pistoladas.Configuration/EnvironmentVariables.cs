@@ -27,10 +27,6 @@ namespace Pistoladas.Configuration
 				//TODO: add a better handling, maybe send an email
 				throw new Exception($"Não foi possível localizar o arquivo .env no escopo do projeto.");
 			}
-			catch (Exception)
-			{
-				throw;
-			}
 		}
 		private static DirectoryInfo TryGetEnvDirectoryInfo(string currentPath = null)
 		{

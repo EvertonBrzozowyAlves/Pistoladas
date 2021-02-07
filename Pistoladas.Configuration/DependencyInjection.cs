@@ -8,6 +8,10 @@ namespace Pistoladas.Configuration
 {
 	public static class DependencyInjection
 	{
+		/// <summary>
+		/// Register a concrete class for each interface in the system
+		/// </summary>
+		/// <param name="services"></param>
 		public static void RegisterDependencies(this IServiceCollection services)
 		{
 			services.AddSingleton<IUserBusiness, UserBusiness>();
