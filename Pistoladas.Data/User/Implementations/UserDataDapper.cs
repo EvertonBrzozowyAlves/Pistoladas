@@ -9,7 +9,7 @@ namespace Pistoladas.Data.User.Implementations
     {
         public IEnumerable<UserModel> GetAllActive()
         {
-            return List(""); //TODO
+            return List("PROC_USERS_LST"); //TODO
         }
 
         public UserModel GetById(int id)
