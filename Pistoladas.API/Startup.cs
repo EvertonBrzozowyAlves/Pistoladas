@@ -5,13 +5,10 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
-using Microsoft.Extensions.Logging;
 using Microsoft.OpenApi.Models;
 using Pistoladas.Configuration;
 using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
+using System.IO;
 
 namespace Pistoladas.API
 {
@@ -29,10 +26,26 @@ namespace Pistoladas.API
             services.AddControllers();
             services.AddSwaggerGen(c =>
             {
-                c.SwaggerDoc("v1", new OpenApiInfo { Title = "Pistoladas.API", Version = "v1" });
+                c.SwaggerDoc("v1", 
+                    new OpenApiInfo
+                    {
+                        Title = "Pistoladas.API", 
+                        Version = "v1",
+                        Description = "Api to provide resources for the Pistoladas project",
+                        Contact = new OpenApiContact()
+                        {
+                            Name = "Everton Brzozowy Alves",
+                            Url = new Uri("https://github.com/EvertonBrzozowyAlves/")
+                        }
+                    });
+                
+                var filePath = Path.Combine(System.AppContext.BaseDirectory, "Pistoladas.API.xml");
+                c.IncludeXmlComments(filePath);
+                c.IgnoreObsoleteActions();
+                c.IgnoreObsoleteProperties();
             });
             EnvironmentVariables.Load();
-            DependencyInjection.RegisterDependencies(services);
+            services.RegisterDependencies();
         }
 
         public void Configure(IApplicationBuilder app, IWebHostEnvironment env)

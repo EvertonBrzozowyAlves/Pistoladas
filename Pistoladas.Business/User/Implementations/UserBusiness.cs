@@ -1,6 +1,7 @@
 ﻿using Pistoladas.Data.User;
 using Pistoladas.Models.Entities.User;
 using System.Collections.Generic;
+using System.Threading.Tasks;
 
 namespace Pistoladas.Business.User.Implementations
 {
@@ -12,9 +13,9 @@ namespace Pistoladas.Business.User.Implementations
             _userData = userData;
         }
 
-        public IEnumerable<UserModel> GetAllActive()
+        public async Task<IEnumerable<UserModel>> GetAllActiveAsync()
         {
-            return _userData.GetAllActive();
+            return await _userData.GetAllActiveAsync();
         }
 
         public UserModel GetById(int id)

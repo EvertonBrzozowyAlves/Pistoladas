@@ -1,11 +1,12 @@
 ﻿using Pistoladas.Models.Entities.User;
 using System.Collections.Generic;
+using System.Threading.Tasks;
 
 namespace Pistoladas.Data.User
 {
     public interface IUserData
     {
-        IEnumerable<UserModel> GetAllActive();
+        Task <IEnumerable<UserModel>> GetAllActiveAsync();
         UserModel GetById(int id);
     }
 }

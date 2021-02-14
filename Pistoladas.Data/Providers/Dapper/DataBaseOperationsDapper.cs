@@ -3,44 +3,42 @@ using Pistoladas.Models.Entities.Base;
 using System.Collections.Generic;
 using System.Data;
 using System.Data.SqlClient;
-using System.Linq;
+using System.Threading.Tasks;
 
 namespace Pistoladas.Data.Providers.Dapper
 {
     public class DataBaseOperationsDapper<T> where T : BaseModel
     {
-        protected string _connectionString = System.Environment.GetEnvironmentVariable("CONNECTION_STRING");
-        public SqlConnection NewConnection()
+        private readonly string _connectionString = System.Environment.GetEnvironmentVariable("CONNECTION_STRING");
+
+        private SqlConnection NewConnection()
         {
             var sqlConnection = new SqlConnection(this._connectionString);
             sqlConnection.Open();
             return sqlConnection;
         }
 
-        public T GetSingleOrDefault(string query, RequestModel param)
+        public async Task<T> GetSingleOrDefaultAsync(string query, RequestModel param)
         {
             using (var connection = this.NewConnection())
             {
-                var result = connection.QuerySingleOrDefault<T>(query, param, commandType: CommandType.StoredProcedure);
-                return result;
+                return await connection.QuerySingleOrDefaultAsync<T>(query, param, commandType: CommandType.StoredProcedure);
             }
         }
 
-        public List<T> List(string query)
+        public async Task<IEnumerable<T>> List(string query)
         {
             using (var connection = this.NewConnection())
             {
-                var result = connection.Query<T>(query, commandType: CommandType.StoredProcedure);
-                var objectList = result?.ToList<T>();
-                return objectList;
+                return await connection.QueryAsync<T>(query, commandType: CommandType.StoredProcedure);
             }
         }
 
-        public void ExecuteNonQuery(string query, RequestModel param)
+        public async void ExecuteNonQueryAsync(string query, RequestModel param)
         {
             using (var connection = this.NewConnection())
             {
-                connection.Execute(query, param, commandType: CommandType.StoredProcedure);
+                await connection.ExecuteAsync(query, param, commandType: CommandType.StoredProcedure);
             }
         }
     }
