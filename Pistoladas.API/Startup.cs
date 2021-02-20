@@ -1,7 +1,5 @@
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
-using Microsoft.AspNetCore.HttpsPolicy;
-using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
@@ -44,8 +42,8 @@ namespace Pistoladas.API
                 c.IgnoreObsoleteActions();
                 c.IgnoreObsoleteProperties();
             });
-            EnvironmentVariables.Load();
             services.RegisterDependencies();
+            EnvironmentVariables.Load();
         }
 
         public void Configure(IApplicationBuilder app, IWebHostEnvironment env)

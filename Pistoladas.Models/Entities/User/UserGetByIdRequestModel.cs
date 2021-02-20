@@ -2,7 +2,8 @@
 
 namespace Pistoladas.Models.Entities.User
 {
-    public class UserRequestModel : RequestModel
+    public class UserGetByIdRequestModel : RequestModel
     {
+        public long UserId { get; set; }
     }
 }

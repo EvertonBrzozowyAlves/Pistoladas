@@ -1,5 +1,4 @@
 ﻿using Pistoladas.Models.Entities.User;
-using System;
 using System.Collections.Generic;
 using System.Threading.Tasks;
 using Pistoladas.Data.Providers.Dapper;
@@ -10,12 +9,17 @@ namespace Pistoladas.Data.User.Implementations
     {
         public async Task<IEnumerable<UserModel>> GetAllActiveAsync()
         {
-            return await List("PROC_USERS_LST"); 
+            return await ListAsync("PROC_USERS_List");
         }
 
-        public UserModel GetById(int id)
+        public async Task<UserModel> GetByIdAsync(int id)
         {
-            throw new NotImplementedException();
+            return await GetSingleOrDefaultAsync("PROC_USERS_GetById", new UserGetByIdRequestModel {UserId = id});
+        }
+        
+        public async Task<long> Update(UserUpdateRequestModel model)
+        {
+            return await ExecuteNonQueryAsync("PROC_USERS_Update", model);
         }
     }
 }

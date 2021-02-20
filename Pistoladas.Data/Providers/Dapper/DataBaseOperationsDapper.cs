@@ -20,26 +20,20 @@ namespace Pistoladas.Data.Providers.Dapper
 
         public async Task<T> GetSingleOrDefaultAsync(string query, RequestModel param)
         {
-            using (var connection = this.NewConnection())
-            {
-                return await connection.QuerySingleOrDefaultAsync<T>(query, param, commandType: CommandType.StoredProcedure);
-            }
+            await using var connection = this.NewConnection();
+            return await connection.QuerySingleOrDefaultAsync<T>(query, param, commandType: CommandType.StoredProcedure);
         }
 
-        public async Task<IEnumerable<T>> List(string query)
+        public async Task<IEnumerable<T>> ListAsync(string query)
         {
-            using (var connection = this.NewConnection())
-            {
-                return await connection.QueryAsync<T>(query, commandType: CommandType.StoredProcedure);
-            }
+            await using var connection = this.NewConnection();
+            return await connection.QueryAsync<T>(query, commandType: CommandType.StoredProcedure);
         }
 
-        public async void ExecuteNonQueryAsync(string query, RequestModel param)
+        public async Task<long> ExecuteNonQueryAsync(string query, RequestModel param)
         {
-            using (var connection = this.NewConnection())
-            {
-                await connection.ExecuteAsync(query, param, commandType: CommandType.StoredProcedure);
-            }
+            await using var connection = this.NewConnection();
+            return await connection.ExecuteAsync(query, param, commandType: CommandType.StoredProcedure);
         }
     }
 }

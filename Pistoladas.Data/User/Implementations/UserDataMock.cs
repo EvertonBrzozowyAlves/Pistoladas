@@ -19,7 +19,12 @@ namespace Pistoladas.Data.User.Implementations
             return users;
         }
 
-        public UserModel GetById(int id)
+        public Task<UserModel> GetByIdAsync(int id)
+        {
+            throw new NotImplementedException();
+        }
+
+        public Task<long> Update(UserUpdateRequestModel model)
         {
             throw new NotImplementedException();
         }

@@ -29,7 +29,6 @@ namespace Pistoladas.Configuration
                 // throw new Exception($"Não foi possível localizar o arquivo .env no escopo do projeto.");
                 var connection = System.Environment.GetEnvironmentVariable("CONNECTION_STRING");
                 Console.WriteLine(connection);
-
             }
         }
         private static DirectoryInfo TryGetEnvDirectoryInfo(string currentPath = null)

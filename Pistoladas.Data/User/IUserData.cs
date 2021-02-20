@@ -7,6 +7,7 @@ namespace Pistoladas.Data.User
     public interface IUserData
     {
         Task <IEnumerable<UserModel>> GetAllActiveAsync();
-        UserModel GetById(int id);
+        Task<UserModel> GetByIdAsync(int id);
+        Task<long> Update(UserUpdateRequestModel model);
     }
 }
