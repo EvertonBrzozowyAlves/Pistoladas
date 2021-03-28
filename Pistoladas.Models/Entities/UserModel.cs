@@ -1,8 +1,8 @@
 ﻿using Pistoladas.Models.Entities.Base;
 
-namespace Pistoladas.Models.Entities.User
+namespace Pistoladas.Models.Entities
 {
-    public class UserUpdateRequestModel : RequestModel
+    public class UserModel : BaseModel
     {
         public long UserId { get; set; }
         public string Name { get; set; }

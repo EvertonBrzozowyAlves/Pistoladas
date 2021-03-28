@@ -1,25 +1,21 @@
-﻿using Pistoladas.Models.Entities.User;
+﻿using Pistoladas.Models.Entities;
 using System.Collections.Generic;
 using System.Threading.Tasks;
 using Pistoladas.Data.Providers.Dapper;
+using Pistoladas.Models.Entities.MethodModels.UserModel;
 
 namespace Pistoladas.Data.User.Implementations
 {
-    public class UserDataDapper : DataBaseOperationsDapper<UserModel>, IUserData
+    public class UserDataDapper : DataBaseOperationsDapper, IUserData
     {
-        public async Task<IEnumerable<UserModel>> GetAllActiveAsync()
+        public UserGetByIdResponse GetById(UserGetByIdRequest request)
         {
-            return await ListAsync("PROC_USERS_List");
+            return GetSingleOrDefaultAsync<UserGetByIdResponse>($"PROC_USERS_{nameof(GetById)}", request).Result;
         }
 
-        public async Task<UserModel> GetByIdAsync(int id)
+        public IEnumerable<UsersGetAllActiveResponse> GetAllActive(UsersGetAllActiveRequest request)
         {
-            return await GetSingleOrDefaultAsync("PROC_USERS_GetById", new UserGetByIdRequestModel {UserId = id});
-        }
-        
-        public async Task<long> Update(UserUpdateRequestModel model)
-        {
-            return await ExecuteNonQueryAsync("PROC_USERS_Update", model);
+            return ListAsync<UsersGetAllActiveResponse>($"PROC_USERS_{nameof(GetAllActive)}", request).Result;
         }
     }
 }

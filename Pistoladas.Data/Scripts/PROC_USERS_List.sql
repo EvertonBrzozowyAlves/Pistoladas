@@ -1,7 +1,7 @@
 USE Pistoladas
 GO
 
-CREATE OR ALTER PROC PROC_USERS_List 
+CREATE OR ALTER PROC PROC_USERS_GetAllActive
 AS
     SELECT
         [UserId]

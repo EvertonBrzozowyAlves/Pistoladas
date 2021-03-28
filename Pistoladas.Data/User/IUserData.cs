@@ -1,13 +1,8 @@
-﻿using Pistoladas.Models.Entities.User;
-using System.Collections.Generic;
-using System.Threading.Tasks;
+﻿using Pistoladas.Models.Interfaces;
 
 namespace Pistoladas.Data.User
 {
-    public interface IUserData
+    public interface IUserData : IUser
     {
-        Task <IEnumerable<UserModel>> GetAllActiveAsync();
-        Task<UserModel> GetByIdAsync(int id);
-        Task<long> Update(UserUpdateRequestModel model);
     }
 }

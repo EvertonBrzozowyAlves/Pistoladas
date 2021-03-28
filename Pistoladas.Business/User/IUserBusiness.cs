@@ -1,12 +1,8 @@
-﻿using Pistoladas.Models.Entities.User;
-using System.Collections.Generic;
-using System.Threading.Tasks;
+﻿using Pistoladas.Models.Interfaces;
 
 namespace Pistoladas.Business.User
 {
-    public interface IUserBusiness
+    public interface IUserBusiness : IUser
     {
-       Task<IEnumerable<UserModel>> GetAllActiveAsync();
-        UserModel GetById(int id);
     }
 }

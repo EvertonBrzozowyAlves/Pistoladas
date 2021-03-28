@@ -1,32 +1,34 @@
-﻿using Pistoladas.Models.Entities.User;
-using System;
-using System.Collections.Generic;
-using System.Threading.Tasks;
+﻿using System.Collections.Generic;
+using Pistoladas.Models.Entities.MethodModels.UserModel;
 
 namespace Pistoladas.Data.User.Implementations
 {
     public class UserDataMock : IUserData
     {
-        public async Task<IEnumerable<UserModel>> GetAllActiveAsync()
+        public UserGetByIdResponse GetById(UserGetByIdRequest request)
         {
-            var users = new List<UserModel>
+            return new()
             {
-                new UserModel("Teste", "teste@gmail.com", "987654321"),
-                new UserModel("Teste20", "teste@gmail.com", "123456789"),
-                new UserModel("Teste30", "teste@gmail.com", "123789456"),
-                new UserModel("Teste40", "teste@gmail.com", "321654987"),
+                Email = "teste@gmail.com",
+                Name = "Teste",
+                MobilePhone = "987654321",
+                UserId = 1
             };
-            return users;
         }
 
-        public Task<UserModel> GetByIdAsync(int id)
+        public IEnumerable<UsersGetAllActiveResponse> GetAllActive(UsersGetAllActiveRequest request)
         {
-            throw new NotImplementedException();
-        }
+            return new List<UsersGetAllActiveResponse>()
+            {
+                new UsersGetAllActiveResponse()
+                {
 
-        public Task<long> Update(UserUpdateRequestModel model)
-        {
-            throw new NotImplementedException();
+                },
+                new UsersGetAllActiveResponse()
+                {
+
+                },
+            };
         }
     }
 }

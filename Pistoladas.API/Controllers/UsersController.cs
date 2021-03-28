@@ -1,12 +1,9 @@
 ﻿using System;
 using Microsoft.AspNetCore.Mvc;
-using Microsoft.Extensions.Logging;
 using Pistoladas.Business.User;
-using Pistoladas.Models.Entities.User;
 using System.Collections.Generic;
-using System.Text.Json;
-using System.Threading.Tasks;
-using Microsoft.AspNetCore.Http;
+using Pistoladas.Models.Entities.MethodModels.UserModel;
+using Pistoladas.Models.Interfaces;
 
 namespace Pistoladas.API.Controllers
 {
@@ -15,16 +12,37 @@ namespace Pistoladas.API.Controllers
     /// </summary>
     [ApiController]
     [Route("[controller]")]
-    public class UsersController : ControllerBase
+    public class UsersController : ControllerBase, IUser
     {
-        private readonly ILogger<UsersController> _logger;
-        private readonly IUserBusiness _userBusiness;
+        private readonly IUserBusiness _business;
 
         /// <inheritdoc />
-        public UsersController(ILogger<UsersController> logger, IUserBusiness userBusiness)
+        public UsersController(IUserBusiness business)
         {
-            _logger = logger;
-            _userBusiness = userBusiness;
+            _business = business;
+        }
+        
+        /// <summary>
+        /// Get User by Id
+        /// </summary>
+        /// <response code="200">Successfully listed the users.</response>
+        /// <response code="500">Oops! Can't list all users right now.</response>
+        /// <returns></returns>
+        [ProducesResponseType(typeof(UserGetByIdResponse), 200)]
+        [ProducesResponseType(500)]
+        [HttpGet]
+        [Route("{id}")]
+        public UserGetByIdResponse GetById([FromRoute] UserGetByIdRequest request)
+        {
+            try
+            {
+                return _business.GetById(request);
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine(e);
+                throw;
+            }
         }
 
         /// <summary>
@@ -35,22 +53,19 @@ namespace Pistoladas.API.Controllers
         /// <returns></returns>
         [HttpGet]
         [Route("")]
-        [ProducesResponseType(typeof(IEnumerable<UserModel>), 200)]
+        [ProducesResponseType(typeof(IEnumerable<UserGetByIdResponse>), 200)]
         [ProducesResponseType(500)]
-        public async Task<IActionResult> GetAllActive()
+        public IEnumerable<UsersGetAllActiveResponse> GetAllActive([FromRoute] UsersGetAllActiveRequest request)
         {
             try
             {
-                var users =  await _userBusiness.GetAllActiveAsync();
-                return Ok(JsonSerializer.Serialize(users));
+                return _business.GetAllActive(request);
             }
             catch (Exception e)
             {
                 Console.WriteLine(e);
-                return StatusCode(StatusCodes.Status500InternalServerError, e.Message);
+                throw;
             }
         }
-        
-        
     }
 }
