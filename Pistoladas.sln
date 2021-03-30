@@ -27,6 +27,10 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Pistoladas.Data", "Pistolad
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Pistoladas.CLI", "Pistoladas.CLI\Pistoladas.CLI.csproj", "{CCCEB0E8-3926-41AF-AE4D-847872CC0398}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "6 - Tests", "6 - Tests", "{61E26D5A-6176-46D4-A303-DEA57A47BACA}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Pistoladas.Tests", "Pistoladas.Tests\Pistoladas.Tests.csproj", "{D30C7D86-97F7-4EA8-8FD2-44AD2A20CD3D}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -57,6 +61,10 @@ Global
 		{CCCEB0E8-3926-41AF-AE4D-847872CC0398}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{CCCEB0E8-3926-41AF-AE4D-847872CC0398}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{CCCEB0E8-3926-41AF-AE4D-847872CC0398}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D30C7D86-97F7-4EA8-8FD2-44AD2A20CD3D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D30C7D86-97F7-4EA8-8FD2-44AD2A20CD3D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D30C7D86-97F7-4EA8-8FD2-44AD2A20CD3D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D30C7D86-97F7-4EA8-8FD2-44AD2A20CD3D}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -68,6 +76,7 @@ Global
 		{11412B5C-E5D7-4579-803E-E82326BE951B} = {E8730F5A-7642-4A16-8F25-808B08E5E352}
 		{49860760-DFEB-49B5-8D51-3A8AD9E51ECE} = {9A19662D-1511-4F14-BCCA-7389DF6B6C45}
 		{CCCEB0E8-3926-41AF-AE4D-847872CC0398} = {8C2C8970-E8B9-461F-8B90-04CD8B00EFB7}
+		{D30C7D86-97F7-4EA8-8FD2-44AD2A20CD3D} = {61E26D5A-6176-46D4-A303-DEA57A47BACA}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {BCA37C2E-87E9-48FC-861A-8AA45656D6A7}
