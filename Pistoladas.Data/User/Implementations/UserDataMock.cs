@@ -1,34 +1,21 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
+using System.Data;
+using System.Threading.Tasks;
 using Pistoladas.Models.Entities.MethodModels.UserModel;
 
 namespace Pistoladas.Data.User.Implementations
 {
     public class UserDataMock : IUserData
     {
-        public UserGetByIdResponse GetById(UserGetByIdRequest request)
+        public Task<UserGetByIdResponse> GetById(UserGetByIdRequest request)
         {
-            return new()
-            {
-                Email = "teste@gmail.com",
-                Name = "Teste",
-                MobilePhone = "987654321",
-                UserId = 1
-            };
+            throw new NotImplementedException();
         }
 
-        public IEnumerable<UsersGetAllActiveResponse> GetAllActive(UsersGetAllActiveRequest request)
+        public Task<IEnumerable<UsersGetAllActiveResponse>> GetAllActive(UsersGetAllActiveRequest request)
         {
-            return new List<UsersGetAllActiveResponse>()
-            {
-                new UsersGetAllActiveResponse()
-                {
-
-                },
-                new UsersGetAllActiveResponse()
-                {
-
-                },
-            };
+            throw new NotImplementedException();
         }
     }
 }

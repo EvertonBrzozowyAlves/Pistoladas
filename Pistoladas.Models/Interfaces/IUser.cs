@@ -1,11 +1,12 @@
 using System.Collections.Generic;
+using System.Threading.Tasks;
 using Pistoladas.Models.Entities.MethodModels.UserModel;
 
 namespace Pistoladas.Models.Interfaces
 {
     public interface IUser
     {
-        UserGetByIdResponse GetById(UserGetByIdRequest request);
-        IEnumerable<UsersGetAllActiveResponse> GetAllActive(UsersGetAllActiveRequest request);
+        Task<UserGetByIdResponse> GetById(UserGetByIdRequest request);
+        Task<IEnumerable<UsersGetAllActiveResponse>> GetAllActive(UsersGetAllActiveRequest request);
     }
 }

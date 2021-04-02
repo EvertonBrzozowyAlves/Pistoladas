@@ -15,9 +15,9 @@ namespace Pistoladas.Tests.Data.User
         
         [Theory]
         [InlineData(1)]
-        public void GetById_ShouldReturnUser(int userId)
+        public async void GetById_ShouldReturnUser(int userId)
         {
-            var result = _data.GetById(new UserGetByIdRequest()
+            var result = await _data.GetById(new UserGetByIdRequest()
             {
                 UserId = userId
             });
@@ -28,9 +28,9 @@ namespace Pistoladas.Tests.Data.User
         [Theory]
         [InlineData(0)]
         [InlineData(long.MaxValue)]
-        public void GetById_ShouldReturnNull(long userId)
+        public async void GetById_ShouldReturnNull(long userId)
         {
-            var result = _data.GetById(new UserGetByIdRequest()
+            var result = await _data.GetById(new UserGetByIdRequest()
             {
                 UserId = userId
             });

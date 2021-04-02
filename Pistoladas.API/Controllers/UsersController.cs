@@ -2,8 +2,10 @@
 using Microsoft.AspNetCore.Mvc;
 using Pistoladas.Business.User;
 using System.Collections.Generic;
+using System.Net;
+using System.Threading.Tasks;
+using Microsoft.Extensions.Logging;
 using Pistoladas.Models.Entities.MethodModels.UserModel;
-using Pistoladas.Models.Interfaces;
 
 namespace Pistoladas.API.Controllers
 {
@@ -12,36 +14,39 @@ namespace Pistoladas.API.Controllers
     /// </summary>
     [ApiController]
     [Route("[controller]")]
-    public class UsersController : ControllerBase, IUser
+    public class UsersController : ControllerBase
     {
         private readonly IUserBusiness _business;
+        private readonly ILogger<UsersController> _logger;
 
         /// <inheritdoc />
-        public UsersController(IUserBusiness business)
+        public UsersController(IUserBusiness business, ILogger<UsersController> logger)
         {
             _business = business;
+            _logger = logger;
         }
         
         /// <summary>
         /// Get User by Id
         /// </summary>
-        /// <response code="200">Successfully listed the users.</response>
-        /// <response code="500">Oops! Can't list all users right now.</response>
+        /// <response code="200">Successfully found the user.</response>
+        /// <response code="500">Oops! Can't find the user right now.</response>
         /// <returns></returns>
         [ProducesResponseType(typeof(UserGetByIdResponse), 200)]
         [ProducesResponseType(500)]
         [HttpGet]
-        [Route("{id}")]
-        public UserGetByIdResponse GetById([FromRoute] UserGetByIdRequest request)
+        [Route("{UserId}")]
+        public async Task<ActionResult<UserGetByIdResponse>> GetById([FromRoute] UserGetByIdRequest request)
         {
             try
             {
-                return _business.GetById(request);
+                var businessResponse =  await _business.GetById(request);
+                return Ok(businessResponse);
             }
             catch (Exception e)
             {
-                Console.WriteLine(e);
-                throw;
+                _logger.LogError(e.Message);
+                return StatusCode((int)HttpStatusCode.InternalServerError, e);
             }
         }
 
@@ -53,18 +58,19 @@ namespace Pistoladas.API.Controllers
         /// <returns></returns>
         [HttpGet]
         [Route("")]
-        [ProducesResponseType(typeof(IEnumerable<UserGetByIdResponse>), 200)]
+        [ProducesResponseType(typeof(IEnumerable<UsersGetAllActiveResponse>), 200)]
         [ProducesResponseType(500)]
-        public IEnumerable<UsersGetAllActiveResponse> GetAllActive([FromRoute] UsersGetAllActiveRequest request)
+        public async Task<ActionResult<IEnumerable<UsersGetAllActiveResponse>>> GetAllActive([FromRoute] UsersGetAllActiveRequest request)
         {
             try
             {
-                return _business.GetAllActive(request);
+                var businessResponse = await _business.GetAllActive(request);
+                return Ok(businessResponse);
             }
             catch (Exception e)
             {
-                Console.WriteLine(e);
-                throw;
+                _logger.LogError(e.Message);
+                return StatusCode((int)HttpStatusCode.InternalServerError, e);
             }
         }
     }

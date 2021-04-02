@@ -1,6 +1,7 @@
-﻿using Pistoladas.Models.Entities;
+﻿using System;
 using System.Collections.Generic;
 using System.Threading.Tasks;
+using Microsoft.Extensions.Logging;
 using Pistoladas.Data.Providers.Dapper;
 using Pistoladas.Models.Entities.MethodModels.UserModel;
 
@@ -8,14 +9,36 @@ namespace Pistoladas.Data.User.Implementations
 {
     public class UserDataDapper : DataBaseOperationsDapper, IUserData
     {
-        public UserGetByIdResponse GetById(UserGetByIdRequest request)
+        private readonly ILogger<UserDataDapper> _logger;
+        public UserDataDapper(ILogger<UserDataDapper> logger)
         {
-            return GetSingleOrDefaultAsync<UserGetByIdResponse>($"PROC_USERS_{nameof(GetById)}", request).Result;
+            _logger = logger;
+        }
+        
+        public async Task<UserGetByIdResponse> GetById(UserGetByIdRequest request)
+        {
+            try
+            {           
+                return await GetSingleOrDefaultAsync<UserGetByIdResponse>($"PROC_USERS_{nameof(GetById)}", request);
+            }
+            catch (Exception e)
+            {
+                _logger.LogError(e.Message);
+                throw;
+            }
         }
 
-        public IEnumerable<UsersGetAllActiveResponse> GetAllActive(UsersGetAllActiveRequest request)
+        public async Task<IEnumerable<UsersGetAllActiveResponse>> GetAllActive(UsersGetAllActiveRequest request)
         {
-            return ListAsync<UsersGetAllActiveResponse>($"PROC_USERS_{nameof(GetAllActive)}", request).Result;
+            try
+            {
+                return await ListAsync<UsersGetAllActiveResponse>($"PROC_USERS_{nameof(GetAllActive)}", request);
+            }
+            catch (Exception e)
+            {
+                _logger.LogError(e.Message);
+                throw;
+            }
         }
     }
 }
