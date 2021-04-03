@@ -16,5 +16,10 @@ namespace Pistoladas.Business.User.Implementations
         {
             throw new NotImplementedException();
         }
+
+        public Task<UserAddResponse> Add(UserAddRequest request)
+        {
+            throw new NotImplementedException();
+        }
     }
 }

@@ -9,7 +9,6 @@ CREATE OR ALTER PROC PROC_USERS_Update
     @UserId BIGINT
 )
 AS
-    DECLARE @RowCount INTEGER
     UPDATE
         [dbo].[Users]
     SET
@@ -18,6 +17,4 @@ AS
         ,[MobilePhone] = @MobilePhone
     WHERE 
         [UserId] = @UserId
-
-    SELECT @RowCount = @@ROWCOUNT
 GO

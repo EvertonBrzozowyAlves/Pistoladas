@@ -73,5 +73,29 @@ namespace Pistoladas.API.Controllers
                 return StatusCode((int)HttpStatusCode.InternalServerError, e);
             }
         }
+        
+        /// <summary>
+        /// Add new User
+        /// </summary>
+        /// <response code="200">Successfully registered the user.</response>
+        /// <response code="500">Oops! Can't register a user right now.</response>
+        /// <returns></returns>
+        [ProducesResponseType(typeof(UserGetByIdResponse), 200)]
+        [ProducesResponseType(500)]
+        [HttpGet]
+        [Route("{UserId}")]
+        public async Task<ActionResult<UserAddResponse>> Add([FromRoute] UserAddRequest request)
+        {
+            try
+            {
+                var businessResponse =  await _business.Add(request);
+                return Ok(businessResponse);
+            }
+            catch (Exception e)
+            {
+                _logger.LogError(e.Message);
+                return StatusCode((int)HttpStatusCode.InternalServerError, e);
+            }
+        }
     }
 }

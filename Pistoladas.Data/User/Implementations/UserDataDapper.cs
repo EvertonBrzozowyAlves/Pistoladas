@@ -40,5 +40,19 @@ namespace Pistoladas.Data.User.Implementations
                 throw;
             }
         }
+
+        public async Task<UserAddResponse> Add(UserAddRequest request)
+        {
+            try
+            {
+                await ExecuteNonQueryAsync($"PROC_USERS_{nameof(Add)}", request);
+                return new UserAddResponse();
+            }
+            catch (Exception e)
+            {
+                _logger.LogError(e.Message);
+                throw;
+            }
+        }
     }
 }

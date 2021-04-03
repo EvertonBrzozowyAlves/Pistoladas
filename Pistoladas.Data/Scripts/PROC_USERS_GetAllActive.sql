@@ -12,4 +12,6 @@ AS
         ,[MobilePhone]
     FROM 
         [dbo].[Users]
+    WHERE
+        [IsActive] = 1
 GO

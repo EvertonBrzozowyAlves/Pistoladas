@@ -42,5 +42,18 @@ namespace Pistoladas.Business.User.Implementations
                 throw;
             }
         }
+
+        public async Task<UserAddResponse> Add(UserAddRequest request)
+        {
+            try
+            {
+                return await _userData.Add(request);
+            }
+            catch (Exception e)
+            {
+                _logger.LogError(e.Message);
+                throw;
+            }
+        }
     }
 }

@@ -7,25 +7,25 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Pistoladas.API", "Pistolada
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Pistoladas.Models", "Pistoladas.Models\Pistoladas.Models.csproj", "{C42FD99B-796D-4007-8804-A144CB8C5526}"
 EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "2 - API", "2 - API", "{C48314E4-D7DE-4E05-87E6-00AFFC48F0EE}"
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "1 - API", "1 - API", "{C48314E4-D7DE-4E05-87E6-00AFFC48F0EE}"
 EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "3 - Business", "3 - Business", "{E8730F5A-7642-4A16-8F25-808B08E5E352}"
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "2 - Business", "2 - Business", "{E8730F5A-7642-4A16-8F25-808B08E5E352}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "0 - Models", "0 - Models", "{F9131EA6-D713-481E-A7BA-E9BAA91FDB1E}"
 EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "4 - Data", "4 - Data", "{9A19662D-1511-4F14-BCCA-7389DF6B6C45}"
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "3 - Data", "3 - Data", "{9A19662D-1511-4F14-BCCA-7389DF6B6C45}"
 EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "5 - Configuration", "5 - Configuration", "{D58FA268-73BE-46B4-9446-EB11C5E8FDE0}"
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "4 - Configuration", "4 - Configuration", "{D58FA268-73BE-46B4-9446-EB11C5E8FDE0}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Pistoladas.Configuration", "Pistoladas.Configuration\Pistoladas.Configuration.csproj", "{E09A363E-08C2-4571-AA98-14314FF952C0}"
 EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Presentation", "Presentation", "{8C2C8970-E8B9-461F-8B90-04CD8B00EFB7}"
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "6 - Presentation", "6 - Presentation", "{8C2C8970-E8B9-461F-8B90-04CD8B00EFB7}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Pistoladas.Business", "Pistoladas.Business\Pistoladas.Business.csproj", "{11412B5C-E5D7-4579-803E-E82326BE951B}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Pistoladas.Data", "Pistoladas.Data\Pistoladas.Data.csproj", "{49860760-DFEB-49B5-8D51-3A8AD9E51ECE}"
 EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "6 - Tests", "6 - Tests", "{61E26D5A-6176-46D4-A303-DEA57A47BACA}"
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "5 - Tests", "5 - Tests", "{61E26D5A-6176-46D4-A303-DEA57A47BACA}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Pistoladas.Tests", "Pistoladas.Tests\Pistoladas.Tests.csproj", "{A76A95E8-7486-4DED-AB37-BC55AFE1CC97}"
 EndProject
