@@ -4,6 +4,7 @@ using System.Threading.Tasks;
 using Microsoft.Extensions.Logging;
 using Pistoladas.Data.Providers.Dapper;
 using Pistoladas.Models.Entities.MethodModels.UserModel;
+using Pistoladas.Models.Exceptions.User;
 
 namespace Pistoladas.Data.User.Implementations
 {
@@ -18,8 +19,15 @@ namespace Pistoladas.Data.User.Implementations
         public async Task<UserGetByIdResponse> GetById(UserGetByIdRequest request)
         {
             try
-            {           
-                return await GetSingleOrDefaultAsync<UserGetByIdResponse>($"PROC_USERS_{nameof(GetById)}", request);
+            {
+                var databaseResponse =
+                    await GetSingleOrDefaultAsync<UserGetByIdResponse>($"PROC_USERS_{nameof(GetById)}", request);
+                if (databaseResponse == null)
+                {
+                    throw new UserNotFoundException();
+                }
+
+                return databaseResponse;
             }
             catch (Exception e)
             {
