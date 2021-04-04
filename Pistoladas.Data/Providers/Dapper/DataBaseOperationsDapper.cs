@@ -18,23 +18,22 @@ namespace Pistoladas.Data.Providers.Dapper
             return sqlConnection;
         }
 
-        protected async Task<BaseResponse> GetSingleOrDefaultAsync<BaseResponse>(string procedureName, BaseRequest param)
+        protected async Task<IBaseResponse> GetSingleOrDefaultAsync<IBaseResponse>(string procedureName, IBaseRequest param)
         {
             await using var connection = NewConnection();
-            return await connection.QuerySingleOrDefaultAsync<BaseResponse>(procedureName, param, commandType: CommandType.StoredProcedure);
+            return await connection.QuerySingleOrDefaultAsync<IBaseResponse>(procedureName, param, commandType: CommandType.StoredProcedure);
         }
 
-        protected async Task<IEnumerable<BaseResponse>> ListAsync<BaseResponse>(string procedureName, BaseRequest param)
+        protected async Task<IEnumerable<IBaseResponse>> ListAsync<IBaseResponse>(string procedureName, IBaseRequest param)
         {
             await using var connection = NewConnection();
-            return await connection.QueryAsync<BaseResponse>(procedureName, param, commandType : CommandType.StoredProcedure);
+            return await connection.QueryAsync<IBaseResponse>(procedureName, param, commandType : CommandType.StoredProcedure);
         }
 
-        protected async Task<BaseResponse> ExecuteNonQueryAsync(string procedureName, BaseRequest param)
+        protected async Task ExecuteNonQueryAsync(string procedureName, IBaseRequest param)
         {
             await using var connection = NewConnection();
             await connection.ExecuteAsync(procedureName, param, commandType: CommandType.StoredProcedure);
-            return new BaseResponse();
         }
     }
 }

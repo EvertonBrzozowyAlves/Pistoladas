@@ -1,5 +1,3 @@
-using System.Linq;
-using System.Threading.Tasks;
 using Pistoladas.Data.User;
 using Pistoladas.Models.Entities.MethodModels.UserModel;
 using Pistoladas.Models.Exceptions.User;
@@ -33,26 +31,10 @@ namespace Pistoladas.Tests.Data.User
         [InlineData(long.MaxValue)]
         public async void GetById_ShouldThrowUserNotFoundException(long userId)
         {
-            Task databaseResult = null;
-            try
+            await Assert.ThrowsAnyAsync<UserNotFoundException>(() => _data.GetById(new UserGetByIdRequest()
             {
-                var teste =  Task.Run(() => _data.GetById(new UserGetByIdRequest()
-                {
-                    UserId = userId
-                }));
-
-                databaseResult = Task.WhenAll(teste);
-                await databaseResult;
-            }
-            catch
-            {
-                if (databaseResult?.Exception != null)
-                {
-                    var exception = databaseResult.Exception.InnerExceptions.First();
-                    Assert.IsType<UserNotFoundException>(exception);
-                }
-            }
-
+                UserId = userId
+            }));
         }
 
         [Fact]

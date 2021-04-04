@@ -20,8 +20,7 @@ namespace Pistoladas.Data.User.Implementations
         {
             try
             {
-                var databaseResponse =
-                    await GetSingleOrDefaultAsync<UserGetByIdResponse>($"PROC_USERS_{nameof(GetById)}", request);
+                var databaseResponse = await GetSingleOrDefaultAsync<UserGetByIdResponse>($"PROC_USERS_{nameof(GetById)}", request);
                 if (databaseResponse == null)
                 {
                     throw new UserNotFoundException();

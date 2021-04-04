@@ -2,7 +2,7 @@
 
 namespace Pistoladas.Models.Entities.MethodModels.UserModel
 {
-    public class UserGetByIdResponse : BaseRequest
+    public class UserGetByIdResponse : IBaseRequest
     {
         public long UserId { get; set; }
         public string Name { get; set; }

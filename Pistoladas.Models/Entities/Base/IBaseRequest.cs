@@ -1,6 +1,6 @@
 ﻿namespace Pistoladas.Models.Entities.Base
 {
-    public class BaseResponse
+    public interface IBaseRequest 
     {
     }
 }

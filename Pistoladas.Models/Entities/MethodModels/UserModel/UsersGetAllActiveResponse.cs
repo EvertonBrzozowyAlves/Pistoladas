@@ -3,7 +3,7 @@ using Pistoladas.Models.Entities.Base;
 
 namespace Pistoladas.Models.Entities.MethodModels.UserModel
 {
-    public class UsersGetAllActiveResponse : BaseResponse
+    public class UsersGetAllActiveResponse : IBaseResponse
     {
         public long UserId { get; set; }
         public bool IsActive { get; set; }
