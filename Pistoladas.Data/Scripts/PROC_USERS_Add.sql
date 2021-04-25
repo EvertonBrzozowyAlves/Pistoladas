@@ -3,13 +3,22 @@ GO
 
 CREATE OR ALTER PROC PROC_USERS_Add 
 (
-    @Name NVARCHAR(50),
-    @Email NVARCHAR(50),
-    @MobilePhone NVARCHAR(50)
+    @Name NVARCHAR(100),
+    @Email NVARCHAR(100),
+    @MobilePhone NVARCHAR(11)
 )
 AS
     INSERT INTO 
-		[dbo].[Users] ([Name], [Email], [MobilePhone])
+		Users 
+        (
+            Name, 
+            Email, 
+            MobilePhone
+        )
     VALUES 
-		(@Name,@Email,@MobilePhone)
+		(
+            @Name,
+            @Email,
+            @MobilePhone
+        )
 GO

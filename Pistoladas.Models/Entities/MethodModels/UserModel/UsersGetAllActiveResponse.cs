@@ -5,7 +5,7 @@ namespace Pistoladas.Models.Entities.MethodModels.UserModel
 {
     public class UsersGetAllActiveResponse : IBaseResponse
     {
-        public long UserId { get; set; }
+        public Guid UserId { get; set; }
         public bool IsActive { get; set; }
         public DateTime RegisterDate { get; set; }
         public string Name { get; set; }

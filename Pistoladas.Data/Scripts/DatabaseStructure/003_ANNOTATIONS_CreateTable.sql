@@ -9,7 +9,7 @@ BEGIN
                                                                 CONSTRAINT      DF_Annotations_AnnotationId     DEFAULT NEWSEQUENTIALID(),
             IsActive            BIT                 NOT NULL    CONSTRAINT      DF_Annotations_IsActive         DEFAULT(1),
             RegisterDate        DATETIME            NOT NULL    CONSTRAINT      DF_Annotations_RegisterDate     DEFAULT(GETDATE()),
-            UserId              BIGINT              NOT NULL    CONSTRAINT      FK_Annotations_UserId           FOREIGN  KEY        REFERENCES Users(UserId),
+            UserId              UNIQUEIDENTIFIER    NOT NULL    CONSTRAINT      FK_Annotations_UserId           FOREIGN  KEY        REFERENCES Users(UserId),
             AnnotationLevel     TINYINT             NOT NULL    CONSTRAINT      DF_Annotations_AnnotationLevel  DEFAULT(1),
             Description         NVARCHAR(1000)      NULL,
             Votes               INT                 NOT NULL    CONSTRAINT      DF_Annotations_Votes            DEFAULT(0),

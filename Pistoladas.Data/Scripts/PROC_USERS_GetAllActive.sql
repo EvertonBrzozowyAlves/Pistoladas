@@ -4,14 +4,14 @@ GO
 CREATE OR ALTER PROC PROC_USERS_GetAllActive
 AS
     SELECT
-        [UserId]
-        ,[IsActive]
-        ,[RegisterDate]
-        ,[Name]
-        ,[Email]
-        ,[MobilePhone]
+        UserId,
+        IsActive,
+        RegisterDate,
+        Name,
+        Email,
+        MobilePhone,
     FROM 
-        [dbo].[Users]
+        Users
     WHERE
-        [IsActive] = 1
+        IsActive = 1
 GO

@@ -3,18 +3,18 @@ GO
 
 CREATE OR ALTER PROC PROC_USERS_Update 
 (
-    @Name NVARCHAR(50),
-    @Email NVARCHAR(50),
-    @MobilePhone NVARCHAR(50),
-    @UserId BIGINT
+    @Name NVARCHAR(100),
+    @Email NVARCHAR(100),
+    @MobilePhone NVARCHAR(11),
+    @UserId UNIQUEIDENTIFIER
 )
 AS
     UPDATE
-        [dbo].[Users]
+        Users
     SET
-        [Name] = @Name
-        ,[Email] = @Email
-        ,[MobilePhone] = @MobilePhone
+        Name = @Name,
+        Email = @Email,
+        MobilePhone = @MobilePhone
     WHERE 
-        [UserId] = @UserId
+        UserId = @UserId
 GO

@@ -3,18 +3,18 @@ GO
 
 CREATE OR ALTER PROC PROC_USERS_GetById 
 (
-    @UserId BIGINT
+    @UserId UNIQUEIDENTIFIER
 )
 AS
     SELECT
-        [UserId]
-        ,[IsActive]
-        ,[RegisterDate]
-        ,[Name]
-        ,[Email]
-        ,[MobilePhone]
+        UserId,
+        IsActive,
+        RegisterDate,
+        Name,
+        Email,
+        MobilePhone
     FROM 
-        [dbo].[Users]
+        Users
     WHERE
-        [UserId] = @UserId
+        UserId = @UserId
 GO

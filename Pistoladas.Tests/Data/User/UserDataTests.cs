@@ -1,3 +1,4 @@
+using System;
 using System.Collections.Generic;
 using Pistoladas.Data.User;
 using Pistoladas.Models.Entities.MethodModels.UserModel;
@@ -16,8 +17,8 @@ namespace Pistoladas.Tests.Data.User
         }
         
         [Theory]
-        [InlineData(1)]
-        public async void GetById_ShouldReturnUserGetByIdResponse(int userId)
+        [InlineData("AC60EFB7-1AA6-EB11-B22B-001A7DDA7110")]
+        public async void GetById_ShouldReturnUserGetByIdResponse(Guid userId)
         {
             var result = await _data.GetById(new UserGetByIdRequest()
             {
@@ -28,9 +29,8 @@ namespace Pistoladas.Tests.Data.User
         }
         
         [Theory]
-        [InlineData(0)]
-        [InlineData(long.MaxValue)]
-        public async void GetById_ShouldThrowUserNotFoundException(long userId)
+        [InlineData("00000000-0000-0000-0000-000000000000")]
+        public async void GetById_ShouldThrowUserNotFoundException(Guid userId)
         {
             await Assert.ThrowsAnyAsync<UserNotFoundException>(() => _data.GetById(new UserGetByIdRequest()
             {
