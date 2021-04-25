@@ -82,9 +82,9 @@ namespace Pistoladas.API.Controllers
         /// <returns></returns>
         [ProducesResponseType(typeof(UserGetByIdResponse), 200)]
         [ProducesResponseType(500)]
-        [HttpGet]
+        [HttpPost]
         [Route("{UserId}")]
-        public async Task<ActionResult<UserAddResponse>> Add([FromRoute] UserAddRequest request)
+        public async Task<ActionResult<UserAddResponse>> Add([FromBody] UserAddRequest request)
         {
             try
             {
