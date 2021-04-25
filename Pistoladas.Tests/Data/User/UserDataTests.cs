@@ -1,3 +1,4 @@
+using System.Collections.Generic;
 using Pistoladas.Data.User;
 using Pistoladas.Models.Entities.MethodModels.UserModel;
 using Pistoladas.Models.Exceptions.User;
@@ -48,6 +49,14 @@ namespace Pistoladas.Tests.Data.User
             });
             
             Assert.IsType<UserAddResponse>(result);
+        }
+        
+        [Fact]
+        public async void GetAllActive_ShouldReturnGetAllActiveResponse()
+        {
+            var result = await _data.GetAllActive(new UsersGetAllActiveRequest());
+            
+            Assert.IsAssignableFrom<IEnumerable<UsersGetAllActiveResponse>>(result);
         }
     }
 }
