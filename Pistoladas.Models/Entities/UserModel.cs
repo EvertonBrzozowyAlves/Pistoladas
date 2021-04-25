@@ -2,7 +2,7 @@
 
 namespace Pistoladas.Models.Entities
 {
-    public class UserModel : BaseModel
+    public abstract class UserModel : BaseModel
     {
         public long UserId { get; set; }
         public string Name { get; set; }
