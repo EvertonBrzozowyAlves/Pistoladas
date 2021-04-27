@@ -1,6 +1,6 @@
 ﻿namespace Pistoladas.Models.Enums
 {
-    public enum AnnotationLevelEnum
+    public enum AnnotationLevelEnum : byte
     {
         Easy = 1,
         Medium = 2,

@@ -8,10 +8,10 @@ using Pistoladas.Models.Exceptions.User;
 
 namespace Pistoladas.Data.User.Implementations
 {
-    public class UserDataDapper : DataBaseOperationsDapper, IUserData
+    public class UserData : DataBaseOperationsDapper, IUserData
     {
-        private readonly ILogger<UserDataDapper> _logger;
-        public UserDataDapper(ILogger<UserDataDapper> logger)
+        private readonly ILogger<UserData> _logger;
+        public UserData(ILogger<UserData> logger)
         {
             _logger = logger;
         }

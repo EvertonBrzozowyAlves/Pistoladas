@@ -35,5 +35,11 @@ namespace Pistoladas.Data.Providers.Dapper
             await using var connection = NewConnection();
             await connection.ExecuteAsync(procedureName, param, commandType: CommandType.StoredProcedure);
         }
+        
+        protected async Task<IBaseResponse> AddAsync<IBaseResponse>(string procedureName, IBaseRequest param)
+        {
+            await using var connection = NewConnection();
+            return await connection.QuerySingleAsync<IBaseResponse>(procedureName, param, commandType: CommandType.StoredProcedure);
+        }
     }
 }
