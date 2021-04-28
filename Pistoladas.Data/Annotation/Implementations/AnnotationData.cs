@@ -15,9 +15,18 @@ namespace Pistoladas.Data.Annotation.Implementations
             _logger = logger;
         }
         
-        public Task<AnnotationGetByIdResponse> GetById(AnnotationGetByIdRequest request)
+        public async Task<AnnotationGetByIdResponse> GetById(AnnotationGetByIdRequest request)
         {
-            throw new System.NotImplementedException();
+            try
+            {
+                var response = await GetSingleOrDefaultAsync<AnnotationGetByIdResponse>($"PROC_ANNOTATIONS_{nameof(GetById)}", request);
+                return response;
+            }
+            catch (Exception e)
+            {
+                _logger.LogError(e.Message);
+                throw;
+            }
         }
 
         public async Task<AnnotationAddResponse> Add(AnnotationAddRequest request)

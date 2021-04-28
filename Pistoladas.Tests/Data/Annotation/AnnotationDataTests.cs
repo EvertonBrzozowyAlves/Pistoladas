@@ -16,7 +16,7 @@ namespace Pistoladas.Tests.Data.Annotation
         }
         
         [Fact]
-        public async void Add_ShouldReturnUserAddResponse()
+        public async void Add_ShouldReturnAnnotationAddResponse()
         {
             var result = await _data.Add(new AnnotationAddRequest
             {
@@ -27,6 +27,18 @@ namespace Pistoladas.Tests.Data.Annotation
             });
             
             Assert.IsType<AnnotationAddResponse>(result);
+        }
+        
+        [Theory]
+        [InlineData("C1E1916E-F3A6-EB11-B22B-001A7DDA7110")]
+        public async void GetById_ShouldReturnAnnotationGetByIdResponse(Guid annotationId)
+        {
+            var result = await _data.GetById(new AnnotationGetByIdRequest()
+            {
+                AnnotationId = annotationId
+            });
+            
+            Assert.IsType<AnnotationGetByIdResponse>(result);
         }
         
     }
