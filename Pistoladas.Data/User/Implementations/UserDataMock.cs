@@ -21,5 +21,10 @@ namespace Pistoladas.Data.User.Implementations
         {
             throw new NotImplementedException();
         }
+
+        public Task<UsersGetActiveCountResponse> GetActiveCount(UsersGetActiveCountRequest request)
+        {
+            throw new NotImplementedException();
+        }
     }
 }

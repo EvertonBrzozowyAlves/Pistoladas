@@ -1,4 +1,4 @@
-USE Pistoladas
+USE Pistoladas;
 GO
 
 CREATE OR ALTER PROC PROC_USERS_GetById 
@@ -16,5 +16,5 @@ AS
     FROM 
         Users
     WHERE
-        UserId = @UserId
+        UserId = @UserId;
 GO

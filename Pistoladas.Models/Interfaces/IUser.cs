@@ -9,6 +9,8 @@ namespace Pistoladas.Models.Interfaces
         Task<UserGetByIdResponse> GetById(UserGetByIdRequest request);
         Task<IEnumerable<UsersGetAllActiveResponse>> GetAllActive(UsersGetAllActiveRequest request);
         Task<UserAddResponse> Add(UserAddRequest request);
+        Task<UsersGetActiveCountResponse> GetActiveCount(UsersGetActiveCountRequest request);
+
 
     }
 }

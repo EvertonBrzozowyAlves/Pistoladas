@@ -1,4 +1,4 @@
-USE Pistoladas
+USE Pistoladas;
 GO
 
 CREATE OR ALTER PROC PROC_USERS_Update 
@@ -16,5 +16,5 @@ AS
         Email = @Email,
         MobilePhone = @MobilePhone
     WHERE 
-        UserId = @UserId
+        UserId = @UserId;
 GO

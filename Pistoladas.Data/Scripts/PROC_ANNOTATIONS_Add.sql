@@ -1,4 +1,4 @@
-USE Pistoladas
+USE Pistoladas;
 GO
 
 CREATE OR ALTER PROC PROC_ANNOTATIONS_Add
@@ -9,20 +9,19 @@ CREATE OR ALTER PROC PROC_ANNOTATIONS_Add
     @Description NVARCHAR(1000)
 )
 AS
-
-INSERT INTO Annotations
-(
-    VictimUserId,
-    AccuserUserId,
-    AnnotationLevel,
-    Description
-)
-OUTPUT inserted.AnnotationId
-VALUES
-(
-    @VictimUserId,
-    @AccuserUserId,
-    @AnnotationLevel,
-    @Description
-)
+    INSERT INTO Annotations
+    (
+        VictimUserId,
+        AccuserUserId,
+        AnnotationLevel,
+        Description
+    )
+    OUTPUT Inserted.AnnotationId
+    VALUES
+    (
+        @VictimUserId,
+        @AccuserUserId,
+        @AnnotationLevel,
+        @Description
+    );
 GO

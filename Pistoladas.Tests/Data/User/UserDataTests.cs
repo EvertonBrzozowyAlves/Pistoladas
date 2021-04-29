@@ -52,11 +52,19 @@ namespace Pistoladas.Tests.Data.User
         }
         
         [Fact]
-        public async void GetAllActive_ShouldReturnGetAllActiveResponse()
+        public async void GetAllActive_ShouldReturnUsersGetAllActiveResponse()
         {
             var result = await _data.GetAllActive(new UsersGetAllActiveRequest());
             
             Assert.IsAssignableFrom<IEnumerable<UsersGetAllActiveResponse>>(result);
+        }
+        
+        [Fact]
+        public async void GetActiveCount_ShouldReturnUsersGetActiveCountResponse()
+        {
+            var result = await _data.GetActiveCount(new UsersGetActiveCountRequest());
+            
+            Assert.IsType<UsersGetActiveCountResponse>(result);
         }
     }
 }

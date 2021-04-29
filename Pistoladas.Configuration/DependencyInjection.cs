@@ -1,4 +1,6 @@
 ﻿using Microsoft.Extensions.DependencyInjection;
+using Pistoladas.Business.Annotations;
+using Pistoladas.Business.Annotations.Implementations;
 using Pistoladas.Business.User;
 using Pistoladas.Business.User.Implementations;
 using Pistoladas.Data.Annotation;
@@ -19,6 +21,7 @@ namespace Pistoladas.Configuration
             services.AddSingleton<IUserBusiness, UserBusiness>();
             services.AddSingleton<IUserData, UserData>();
             services.AddSingleton<IAnnotationData, AnnotationData>();
+            services.AddSingleton<IAnnotationsBusiness, AnnotationBusiness>();
         }
     }
 }

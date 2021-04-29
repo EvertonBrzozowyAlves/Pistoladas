@@ -9,11 +9,11 @@ namespace Pistoladas.Business.User.Implementations
 {
     public class UserBusiness : IUserBusiness
     {
-        private readonly IUserData _userData;
+        private readonly IUserData _data;
         private readonly ILogger<UserBusiness> _logger;
-        public UserBusiness(IUserData userData, ILogger<UserBusiness> logger)
+        public UserBusiness(IUserData data, ILogger<UserBusiness> logger)
         {
-            _userData = userData;
+            _data = data;
             _logger = logger;
         }
 
@@ -21,7 +21,7 @@ namespace Pistoladas.Business.User.Implementations
         {
             try
             {            
-                return await _userData.GetById(request);
+                return await _data.GetById(request);
             }
             catch (Exception e)
             {
@@ -34,7 +34,7 @@ namespace Pistoladas.Business.User.Implementations
         {
             try
             {
-                return await _userData.GetAllActive(request);
+                return await _data.GetAllActive(request);
             }
             catch (Exception e)
             {
@@ -47,7 +47,20 @@ namespace Pistoladas.Business.User.Implementations
         {
             try
             {
-                return await _userData.Add(request);
+                return await _data.Add(request);
+            }
+            catch (Exception e)
+            {
+                _logger.LogError(e.Message);
+                throw;
+            }
+        }
+
+        public async Task<UsersGetActiveCountResponse> GetActiveCount(UsersGetActiveCountRequest request)
+        {
+            try
+            {
+                return await _data.GetActiveCount(request);
             }
             catch (Exception e)
             {

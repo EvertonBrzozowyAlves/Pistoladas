@@ -61,5 +61,18 @@ namespace Pistoladas.Data.User.Implementations
                 throw;
             }
         }
+
+        public async Task<UsersGetActiveCountResponse> GetActiveCount(UsersGetActiveCountRequest request)
+        {
+            try
+            {
+                return await GetSingleOrDefaultAsync<UsersGetActiveCountResponse>($"PROC_USERS_{nameof(GetActiveCount)}", request);
+            }
+            catch (Exception e)
+            {
+                _logger.LogError(e.Message);
+                throw;
+            }
+        }
     }
 }

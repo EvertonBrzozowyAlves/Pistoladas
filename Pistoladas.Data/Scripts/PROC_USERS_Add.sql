@@ -1,4 +1,4 @@
-USE Pistoladas
+USE Pistoladas;
 GO
 
 CREATE OR ALTER PROC PROC_USERS_Add 
@@ -8,17 +8,17 @@ CREATE OR ALTER PROC PROC_USERS_Add
     @MobilePhone NVARCHAR(11)
 )
 AS
-    INSERT INTO 
-		Users 
-        (
-            Name, 
-            Email, 
-            MobilePhone
-        )
+    INSERT INTO Users 
+    (
+        Name, 
+        Email, 
+        MobilePhone
+    )
+    OUTPUT Inserted.UserId
     VALUES 
-		(
-            @Name,
-            @Email,
-            @MobilePhone
-        )
+    (
+        @Name,
+        @Email,
+        @MobilePhone
+    );
 GO
