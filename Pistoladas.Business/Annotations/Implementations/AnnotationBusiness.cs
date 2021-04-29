@@ -51,7 +51,7 @@ namespace Pistoladas.Business.Annotations.Implementations
                 {
                     AnnotationId = request.AnnotationId
                 });
-                var activeUsersSimpleMajority = ActiveUsersSimpleMajority(currentActiveUsersCount.ActiveUsersCount);
+                var activeUsersSimpleMajority = _userBusiness.ActiveUsersSimpleMajority(currentActiveUsersCount.ActiveUsersCount);
                 
                 var result = new CheckAnnotationIsValidatedResponse();  
 
@@ -69,11 +69,6 @@ namespace Pistoladas.Business.Annotations.Implementations
                 Console.WriteLine(e);
                 throw;
             }
-        }
-
-        private static decimal ActiveUsersSimpleMajority(long currentActiveUsersCount)
-        {
-            return (decimal) currentActiveUsersCount / 2 + 1;
         }
     }
 }

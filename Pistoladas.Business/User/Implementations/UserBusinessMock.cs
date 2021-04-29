@@ -26,5 +26,10 @@ namespace Pistoladas.Business.User.Implementations
         {
             throw new NotImplementedException();
         }
+
+        public long ActiveUsersSimpleMajority(long currentActiveUsersCount)
+        {
+            throw new NotImplementedException();
+        }
     }
 }

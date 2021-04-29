@@ -5,11 +5,11 @@ using Xunit;
 
 namespace Pistoladas.Tests.Business.Annotation
 {
-    public class AnnotationBusinessTests
+    public class Tests
     {
         private readonly IAnnotationsBusiness _business;
         
-        public AnnotationBusinessTests(IAnnotationsBusiness business)
+        public Tests(IAnnotationsBusiness business)
         {
             _business = business;
         }

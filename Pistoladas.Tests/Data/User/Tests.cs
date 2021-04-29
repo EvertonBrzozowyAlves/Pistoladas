@@ -7,11 +7,11 @@ using Xunit;
 
 namespace Pistoladas.Tests.Data.User
 {
-    public class UserDataTests
+    public class Tests
     {
         private readonly IUserData _data;
         
-        public UserDataTests(IUserData data)
+        public Tests(IUserData data)
         {
             _data = data;
         }

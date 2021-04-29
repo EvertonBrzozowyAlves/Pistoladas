@@ -68,5 +68,10 @@ namespace Pistoladas.Business.User.Implementations
                 throw;
             }
         }
+
+        public long ActiveUsersSimpleMajority(long currentActiveUsersCount)
+        {
+            return currentActiveUsersCount / 2 + 1;
+        }
     }
 }

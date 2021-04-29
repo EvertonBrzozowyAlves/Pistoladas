@@ -6,11 +6,11 @@ using Xunit;
 
 namespace Pistoladas.Tests.Data.Annotation
 {
-    public class AnnotationDataTests
+    public class Tests
     {
         private readonly IAnnotationData _data;
         
-        public AnnotationDataTests(IAnnotationData data)
+        public Tests(IAnnotationData data)
         {
             _data = data;
         }
