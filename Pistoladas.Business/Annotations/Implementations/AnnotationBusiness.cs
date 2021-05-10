@@ -2,8 +2,12 @@ using System;
 using System.Threading.Tasks;
 using Pistoladas.Business.User;
 using Pistoladas.Data.Annotation;
-using Pistoladas.Models.Entities.MethodModels.AnnotationModel;
-using Pistoladas.Models.Entities.MethodModels.UserModel;
+using Pistoladas.Models.Entities.MethodModels.Annotation;
+using Pistoladas.Models.Entities.MethodModels.User;
+using AddRequest = Pistoladas.Models.Entities.MethodModels.Annotation.AddRequest;
+using AddResponse = Pistoladas.Models.Entities.MethodModels.Annotation.AddResponse;
+using GetByIdRequest = Pistoladas.Models.Entities.MethodModels.Annotation.GetByIdRequest;
+using GetByIdResponse = Pistoladas.Models.Entities.MethodModels.Annotation.GetByIdResponse;
 
 namespace Pistoladas.Business.Annotations.Implementations
 {
@@ -16,7 +20,7 @@ namespace Pistoladas.Business.Annotations.Implementations
             _data = data;
             _userBusiness = userBusiness;
         }
-        public Task<AnnotationGetByIdResponse> GetById(AnnotationGetByIdRequest request)
+        public Task<GetByIdResponse> GetById(GetByIdRequest request)
         {
             try
             {
@@ -29,7 +33,7 @@ namespace Pistoladas.Business.Annotations.Implementations
             }
         }
 
-        public Task<AnnotationAddResponse> Add(AnnotationAddRequest request)
+        public Task<AddResponse> Add(AddRequest request)
         {
             try
             {
@@ -42,12 +46,12 @@ namespace Pistoladas.Business.Annotations.Implementations
             }
         }
 
-        public async Task<CheckAnnotationIsValidatedResponse> CheckAnnotationIsValidated(CheckAnnotationIsValidatedRequest request)
+        public async Task<CheckAnnotationIsValidatedResponse> CheckIfAnnotationIsValidated(CheckAnnotationIsValidatedRequest request)
         {
             try
             {
-                var currentActiveUsersCount = await _userBusiness.GetActiveCount(new UsersGetActiveCountRequest());
-                var annotation = await _data.GetById(new AnnotationGetByIdRequest
+                var currentActiveUsersCount = await _userBusiness.GetActiveCount(new GetActiveCountRequest());
+                var annotation = await _data.GetById(new GetByIdRequest
                 {
                     AnnotationId = request.AnnotationId
                 });
@@ -55,11 +59,12 @@ namespace Pistoladas.Business.Annotations.Implementations
                 
                 var result = new CheckAnnotationIsValidatedResponse();  
 
-                if (annotation.Votes >= activeUsersSimpleMajority && annotation.IsActive)
-                {
-                    result.IsValidated = true;
-                    return result;
-                }
+                //TODO: refactor to user the annotationvotes method
+                // if (annotation.Votes >= activeUsersSimpleMajority && annotation.IsActive)
+                // {
+                //     result.IsValidated = true;
+                //     return result;
+                // }
 
                 result.IsValidated = false;
                 return result;

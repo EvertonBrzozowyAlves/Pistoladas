@@ -5,6 +5,8 @@ using Pistoladas.Business.User;
 using Pistoladas.Business.User.Implementations;
 using Pistoladas.Data.Annotation;
 using Pistoladas.Data.Annotation.Implementations;
+using Pistoladas.Data.AnnotationVote;
+using Pistoladas.Data.AnnotationVote.Implementations;
 using Pistoladas.Data.User;
 using Pistoladas.Data.User.Implementations;
 
@@ -22,6 +24,10 @@ namespace Pistoladas.Configuration
             services.AddSingleton<IUserData, UserData>();
             services.AddSingleton<IAnnotationData, AnnotationData>();
             services.AddSingleton<IAnnotationsBusiness, AnnotationBusiness>();
+            services.AddSingleton<IAnnotationVoteData, AnnotationVoteData>();
+            // services.AddSingleton<IAnnotationsBusiness, AnnotationBusiness>();
+
+
         }
     }
 }

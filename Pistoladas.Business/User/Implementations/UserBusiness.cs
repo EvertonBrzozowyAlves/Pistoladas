@@ -3,7 +3,7 @@ using Pistoladas.Data.User;
 using System.Collections.Generic;
 using System.Threading.Tasks;
 using Microsoft.Extensions.Logging;
-using Pistoladas.Models.Entities.MethodModels.UserModel;
+using Pistoladas.Models.Entities.MethodModels.User;
 
 namespace Pistoladas.Business.User.Implementations
 {
@@ -17,7 +17,7 @@ namespace Pistoladas.Business.User.Implementations
             _logger = logger;
         }
 
-        public async Task<UserGetByIdResponse> GetById(UserGetByIdRequest request)
+        public async Task<GetByIdResponse> GetById(GetByIdRequest request)
         {
             try
             {            
@@ -30,7 +30,7 @@ namespace Pistoladas.Business.User.Implementations
             }
         }
 
-        public async Task<IEnumerable<UsersGetAllActiveResponse>> GetAllActive(UsersGetAllActiveRequest request)
+        public async Task<IEnumerable<GetAllActiveResponse>> GetAllActive(GetAllActiveRequest request)
         {
             try
             {
@@ -43,7 +43,7 @@ namespace Pistoladas.Business.User.Implementations
             }
         }
 
-        public async Task<UserAddResponse> Add(UserAddRequest request)
+        public async Task<AddResponse> Add(AddRequest request)
         {
             try
             {
@@ -56,7 +56,7 @@ namespace Pistoladas.Business.User.Implementations
             }
         }
 
-        public async Task<UsersGetActiveCountResponse> GetActiveCount(UsersGetActiveCountRequest request)
+        public async Task<GetActiveCountResponse> GetActiveCount(GetActiveCountRequest request)
         {
             try
             {

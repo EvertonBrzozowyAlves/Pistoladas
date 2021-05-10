@@ -1,28 +1,28 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Threading.Tasks;
-using Pistoladas.Models.Entities.MethodModels.UserModel;
+using Pistoladas.Models.Entities.MethodModels.User;
 
 namespace Pistoladas.Business.User.Implementations
 {
     public class UserBusinessMock : IUserBusiness
     {
-        public Task<UserGetByIdResponse> GetById(UserGetByIdRequest request)
+        public Task<GetByIdResponse> GetById(GetByIdRequest request)
         {
             throw new NotImplementedException();
         }
 
-        public Task<IEnumerable<UsersGetAllActiveResponse>> GetAllActive(UsersGetAllActiveRequest request)
+        public Task<IEnumerable<GetAllActiveResponse>> GetAllActive(GetAllActiveRequest request)
         {
             throw new NotImplementedException();
         }
 
-        public Task<UserAddResponse> Add(UserAddRequest request)
+        public Task<AddResponse> Add(AddRequest request)
         {
             throw new NotImplementedException();
         }
 
-        public Task<UsersGetActiveCountResponse> GetActiveCount(UsersGetActiveCountRequest request)
+        public Task<GetActiveCountResponse> GetActiveCount(GetActiveCountRequest request)
         {
             throw new NotImplementedException();
         }

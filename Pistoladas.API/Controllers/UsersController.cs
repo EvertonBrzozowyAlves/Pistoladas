@@ -5,7 +5,7 @@ using System.Collections.Generic;
 using System.Net;
 using System.Threading.Tasks;
 using Microsoft.Extensions.Logging;
-using Pistoladas.Models.Entities.MethodModels.UserModel;
+using Pistoladas.Models.Entities.MethodModels.User;
 
 namespace Pistoladas.API.Controllers
 {
@@ -32,11 +32,11 @@ namespace Pistoladas.API.Controllers
         /// <response code="200">Successfully found the user.</response>
         /// <response code="500">Oops! Can't find the user right now.</response>
         /// <returns></returns>
-        [ProducesResponseType(typeof(UserGetByIdResponse), 200)]
+        [ProducesResponseType(typeof(GetByIdResponse), 200)]
         [ProducesResponseType(500)]
         [HttpGet]
         [Route("{UserId}")]
-        public async Task<ActionResult<UserGetByIdResponse>> GetById([FromRoute] UserGetByIdRequest request)
+        public async Task<ActionResult<GetByIdResponse>> GetById([FromRoute] GetByIdRequest request)
         {
             try
             {
@@ -58,9 +58,9 @@ namespace Pistoladas.API.Controllers
         /// <returns></returns>
         [HttpGet]
         [Route("")]
-        [ProducesResponseType(typeof(IEnumerable<UsersGetAllActiveResponse>), 200)]
+        [ProducesResponseType(typeof(IEnumerable<GetAllActiveResponse>), 200)]
         [ProducesResponseType(500)]
-        public async Task<ActionResult<IEnumerable<UsersGetAllActiveResponse>>> GetAllActive([FromRoute] UsersGetAllActiveRequest request)
+        public async Task<ActionResult<IEnumerable<GetAllActiveResponse>>> GetAllActive([FromRoute] GetAllActiveRequest request)
         {
             try
             {
@@ -80,11 +80,11 @@ namespace Pistoladas.API.Controllers
         /// <response code="200">Successfully registered the user.</response>
         /// <response code="500">Oops! Can't register a user right now.</response>
         /// <returns></returns>
-        [ProducesResponseType(typeof(UserGetByIdResponse), 200)]
+        [ProducesResponseType(typeof(GetByIdResponse), 200)]
         [ProducesResponseType(500)]
         [HttpPost]
         [Route("{UserId}")]
-        public async Task<ActionResult<UserAddResponse>> Add([FromBody] UserAddRequest request)
+        public async Task<ActionResult<AddResponse>> Add([FromBody] AddRequest request)
         {
             try
             {

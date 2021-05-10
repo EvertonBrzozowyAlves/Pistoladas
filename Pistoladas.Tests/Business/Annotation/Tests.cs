@@ -1,6 +1,6 @@
 using System;
 using Pistoladas.Business.Annotations;
-using Pistoladas.Models.Entities.MethodModels.AnnotationModel;
+using Pistoladas.Models.Entities.MethodModels.Annotation;
 using Xunit;
 
 namespace Pistoladas.Tests.Business.Annotation
@@ -18,7 +18,7 @@ namespace Pistoladas.Tests.Business.Annotation
         [InlineData("C1E1916E-F3A6-EB11-B22B-001A7DDA7110")]
         public async void CheckAnnotationIsValidated_ShouldReturnCheckAnnotationIsValidatedResponse(Guid annotationId)
         {
-            var result = await _business.CheckAnnotationIsValidated(new CheckAnnotationIsValidatedRequest
+            var result = await _business.CheckIfAnnotationIsValidated(new CheckAnnotationIsValidatedRequest
             {
                 AnnotationId = annotationId
             });

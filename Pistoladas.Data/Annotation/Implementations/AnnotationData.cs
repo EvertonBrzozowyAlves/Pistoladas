@@ -2,7 +2,7 @@ using System;
 using System.Threading.Tasks;
 using Microsoft.Extensions.Logging;
 using Pistoladas.Data.Providers.Dapper;
-using Pistoladas.Models.Entities.MethodModels.AnnotationModel;
+using Pistoladas.Models.Entities.MethodModels.Annotation;
 
 namespace Pistoladas.Data.Annotation.Implementations
 {
@@ -15,11 +15,11 @@ namespace Pistoladas.Data.Annotation.Implementations
             _logger = logger;
         }
         
-        public async Task<AnnotationGetByIdResponse> GetById(AnnotationGetByIdRequest request)
+        public async Task<GetByIdResponse> GetById(GetByIdRequest request)
         {
             try
             {
-                var response = await GetSingleOrDefaultAsync<AnnotationGetByIdResponse>($"PROC_ANNOTATIONS_{nameof(GetById)}", request);
+                var response = await GetSingleOrDefaultAsync<GetByIdResponse>($"PROC_ANNOTATIONS_{nameof(GetById)}", request);
                 return response;
             }
             catch (Exception e)
@@ -29,11 +29,11 @@ namespace Pistoladas.Data.Annotation.Implementations
             }
         }
 
-        public async Task<AnnotationAddResponse> Add(AnnotationAddRequest request)
+        public async Task<AddResponse> Add(AddRequest request)
         {
             try
             {
-                var response = await AddAsync<AnnotationAddResponse>($"PROC_ANNOTATIONS_{nameof(Add)}", request);
+                var response = await AddAsync<AddResponse>($"PROC_ANNOTATIONS_{nameof(Add)}", request);
                 return response;
             }
             catch (Exception e)
